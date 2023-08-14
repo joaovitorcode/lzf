@@ -1,4 +1,4 @@
-// import { GrInstagram, GrLinkedinOption, GrMail } from 'react-icons/Gr'
+import { GrInstagram, GrLinkedinOption, GrMail } from 'react-icons/Gr'
 
 export function Lawyer() {
   return (
@@ -7,7 +7,7 @@ export function Lawyer() {
       <span className="text-white font-semibold border-b border-amber-500 pb-2">Leandro Zaia</span>
       <span className="text-slate-300 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est neque, fermentum non volutpat efficitur, lobortis vitae ipsum. Mauris eget blandit mauris.</span>
       <div className='flex gap-6'>
-        {/* <button>
+        <button>
           <GrInstagram className="w-6 h-6 text-white" />
         </button>
         <button>
@@ -15,7 +15,7 @@ export function Lawyer() {
         </button>
         <button>
           <GrMail className="w-6 h-6 text-white" />
-        </button> */}
+        </button>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ import { Footer } from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className=''>
+    <div>
       <Header />
       <div className='max-w-7xl mx-auto flex flex-col gap-8 relative top-[104px]'>
         <Banner />

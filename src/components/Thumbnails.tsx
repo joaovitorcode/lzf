@@ -10,7 +10,7 @@ export function Thumbnails() {
 
         <button className='py-3 px-6 font-semibold text-slate-900 rounded bg-amber-400 hover:bg-amber-300'>Ver mais</button>
       </div>
-      <div className='flex justify-between pt-6'>
+      <div className='flex gap-6 pt-6'>
         <Thumbnail />
         <Thumbnail />
         <Thumbnail />
