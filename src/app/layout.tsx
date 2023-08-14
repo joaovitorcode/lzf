@@ -2,9 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
-import { Testimonials } from '../components/Testimonials'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,13 +13,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
-      <body className='bg-slate-900 flex flex-col gap-16'>
-        <Header />
-        <div className='max-w-7xl mx-auto'>
-          {children}
-        </div>
-        <Testimonials />
-        <Footer />
+      <body className='bg-slate-900'>
+        {children}
       </body>
     </html>
   )

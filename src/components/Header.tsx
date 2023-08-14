@@ -3,7 +3,7 @@ import { MdOutlineLightMode } from "react-icons/md"
 
 export function Header() {
   return (
-    <header className='w-full bg-slate-900'>
+    <header className='w-full bg-slate-900 shadow-2xl fixed z-10'>
       <div className="max-w-7xl mx-auto py-4 flex justify-between">
         <Link href='/' >
           <h1 className="text-amber-500 text-4xl font-bold uppercase">Logo</h1>

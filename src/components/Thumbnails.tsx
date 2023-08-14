@@ -1,12 +1,11 @@
 import { Thumbnail } from './Thumbnail'
 
-export function RecentPosts() {
+export function Thumbnails() {
   return (
     <section className="w-full">
       <div className='flex justify-between items-end'>
-        <h2 className='text-white text-4xl font-semibold'>
+        <h2 className='text-white text-4xl font-semibold border-b border-amber-500 pb-4'>
           Artigos Recentes
-          <div className="w-full border-t mt-4 border-amber-500" />
         </h2>
 
         <button className='py-3 px-6 font-semibold text-slate-900 rounded bg-amber-400 hover:bg-amber-300'>Ver mais</button>
