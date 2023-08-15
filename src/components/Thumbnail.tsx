@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export function Thumbnail() {
   return (
-    <div className="w-auto flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4">
       <div className='w-full aspect-square bg-slate-800 rounded-2xl' />
       <div className='flex gap-2 items-center'>
         <div className='w-8 h-8 bg-slate-800 rounded-full' />

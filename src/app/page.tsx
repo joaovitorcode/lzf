@@ -9,9 +9,9 @@ import { Footer } from '../components/Footer'
 
 export default function Home() {
   return (
-    <div>
+    <div className=''>
       <Header />
-      <div className='max-w-7xl mx-auto flex flex-col gap-8 relative top-[104px]'>
+      <div className='max-w-7xl mx-auto px-4 xl:px-0 flex flex-col gap-8 relative top-[104px]'>
         <Banner />
         <Thumbnails />
         <Services direction='row' />
@@ -23,7 +23,7 @@ export default function Home() {
       </div>
       <div className='flex flex-col gap-8 pt-8 relative top-[104px]'>
         <Testimonials />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   )
