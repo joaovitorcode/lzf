@@ -7,7 +7,7 @@ export function Services({ direction }: ServicesProps) {
     <section className={direction === 'row' ? "w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-center" : "w-full flex flex-col-reverse lg:flex-row-reverse gap-8 lg:gap-16 items-center"}>
       <div className="w-full lg:max-w-[608px] h-[456px] rounded-2xl bg-slate-800" />
       <div className="w-full lg:max-w-[608px]">
-        <h3 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl py-4 border-b border-amber-500 inline-block">
+        <h3 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-4 pb-2 border-b border-amber-500 inline-block">
           Serviço 1
         </h3>
 
