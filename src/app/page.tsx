@@ -23,7 +23,7 @@ export default function Home() {
       </div>
       <div className='flex flex-col gap-8 pt-8 relative top-[104px]'>
         <Testimonials />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   )

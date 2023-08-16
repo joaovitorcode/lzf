@@ -2,7 +2,7 @@ import { MdStarRate } from 'react-icons/md'
 
 export function Testimonial() {
   return (
-    <div className="w-96 h-[216px] p-6 flex flex-col gap-2 bg-slate-900 rounded-2xl">
+    <div className="w-full p-6 flex flex-col gap-2 bg-slate-900 rounded-2xl">
       <div className="flex gap-2 items-center">
         <div className="w-8 h-8 bg-slate-800 rounded-full" />
         <span className="text-white font-semibold">João Vitor</span>

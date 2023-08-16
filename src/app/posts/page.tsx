@@ -6,7 +6,7 @@ export default function Posts() {
   return (
     <div>
       <Header />
-      <div className='max-w-7xl mx-auto flex flex-wrap gap-x-6 gap-y-16 relative top-[104px]'>
+      <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 xl:px-0 gap-x-6 gap-y-16 relative top-[104px]'>
         <Thumbnail />
         <Thumbnail />
         <Thumbnail />

@@ -1,10 +1,10 @@
 export function Footer() {
   return (
-    <footer className="w-full bg-slate-800">
-      <div className="max-w-7xl mx-auto py-8">
-        <div className="flex gap-16">
-          <div className="w-[608px] h-[362px] rounded-lg bg-slate-900" />
-          <div className="w-[608px] flex flex-col gap-12">
+    <footer className="w-full bg-slate-900">
+      <div className="max-w-7xl mx-auto py-8 px-4 xl:px-0">
+        <div className="flex gap-8 lg:gap-16 flex-col lg:flex-row">
+          <div className="w-full h-[362px] rounded-lg bg-slate-950" />
+          <div className="w-full flex flex-col gap-12">
             <div>
               <h3 className="text-white font-semibold text-4xl">Fale conosco</h3>
               <p className="text-slate-300 pt-4">+55 11 97074-6016</p>
