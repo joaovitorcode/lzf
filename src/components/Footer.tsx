@@ -4,17 +4,17 @@ export function Footer() {
       <div className="max-w-7xl mx-auto py-8 px-4 xl:px-0">
         <div className="flex gap-8 lg:gap-16 flex-col md:flex-row">
           <div className="w-full h-[362px] rounded-lg bg-slate-950" />
-          <div className="w-full flex flex-col gap-12">
+          <div className="w-full flex flex-col gap-8 md:gap-12">
             <div>
-              <h3 className="text-white font-semibold text-4xl">Fale conosco</h3>
+              <h3 className="text-white font-semibold text-3xl md:text-4xl">Fale conosco</h3>
               <p className="text-slate-300 pt-4">+55 11 97074-6016</p>
             </div>
             <div>
-              <h3 className="text-white font-semibold text-4xl">E-mail</h3>
+              <h3 className="text-white font-semibold text-3xl md:text-4xl">E-mail</h3>
               <p className="text-slate-300 pt-4">dr.zaiafilho@outlook.com.br</p>
             </div>
             <div>
-              <h3 className="text-white font-semibold text-4xl">Nos visite</h3>
+              <h3 className="text-white font-semibold text-3xl md:text-4xl">Nos visite</h3>
               <p className="text-slate-300 pt-4">Rua José Margarido, 23, Santana, São Paulo SP, 02021-020, Brasil</p>
             </div>
           </div>

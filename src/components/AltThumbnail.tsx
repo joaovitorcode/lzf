@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export function AltThumbnail() {
   return (
-    <div className="w-full flex gap-4 pt-6">
-      <div className='flex w-48 h-48 aspect-square bg-slate-800 rounded-2xl' />
+    <div className="w-full flex flex-col sm:flex-row gap-4 pt-6">
+      <div className='flex w-full sm:w-48 sm:h-48 aspect-square bg-slate-800 rounded-2xl' />
       
       <div className='flex flex-col gap-4 py-4'>
         <div className='flex gap-2 items-center'>
