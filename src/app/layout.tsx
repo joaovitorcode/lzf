@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
+import { DarkModeContextProvider } from '@/contexts/DarkModeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,9 +13,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={inter.className}>
-      <body className='bg-slate-950'>
-        {children}
+    <html lang="pt-BR" className={`${inter.className} dark`}>
+      <body className='bg-slate-50 dark:bg-slate-950'>
+        <DarkModeContextProvider>
+          {children}
+        </DarkModeContextProvider>
       </body>
     </html>
   )

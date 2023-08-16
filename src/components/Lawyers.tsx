@@ -3,7 +3,7 @@ import { Lawyer } from './Lawyer'
 export function Lawyers() {
   return (
     <section className="w-full">
-      <h3 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-4 pb-2 border-b border-amber-500 inline-block">
+      <h3 className="text-slate-950 dark:text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-4 pb-2 border-b border-amber-500 inline-block">
         Advogados
       </h3>
 
