@@ -4,7 +4,7 @@ import { Author } from "@/components/Author";
 import { AltThumbnail } from "@/components/AltThumbnail";
 import Link from "next/link";
 
-export default function Post({ params }: { params: { slug: string } }) {
+export default function Artigo({ params }: { params: { slug: string } }) {
   return (
     <div>
       <Header />

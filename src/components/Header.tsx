@@ -1,11 +1,13 @@
 "use client"
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { MdOutlineLightMode, MdMenu } from "react-icons/md"
+import { MdMenu } from "react-icons/md"
 import { ToggleColorModeButton } from '../components/ToggleColorModeButton'
 
 export function Header() {
+  const pathname = usePathname()
   const [toggle, setToggle] = useState(false)
 
   return (
@@ -16,9 +18,9 @@ export function Header() {
         </Link>
 
         <nav className='hidden sm:flex gap-6'>
-          <Link href='/' className='text-slate-950 dark:text-white border-b border-amber-500 pb-2'>Início</Link>
-          <Link href='/' className='text-slate-950 dark:text-white hover:border-b border-amber-500 pb-2'>Artigos</Link>
-          <Link href='/' className='text-slate-950 dark:text-white hover:border-b border-amber-500 pb-2'>Parceiros</Link>
+          <Link href='/' className={`text-slate-950 dark:text-white ${pathname === '/' && "border-b"} hover:border-b border-amber-500 pb-2`}>Início</Link>
+          <Link href='/artigos' className={`text-slate-950 dark:text-white ${pathname === '/artigos' && "border-b"} hover:border-b border-amber-500 pb-2`}>Artigos</Link>
+          <Link href='/parceiros' className={`text-slate-950 dark:text-white ${pathname === '/parceiros' && "border-b"} hover:border-b border-amber-500 pb-2`}>Parceiros</Link>
         </nav>
 
         <div className='flex gap-4'>
@@ -29,9 +31,9 @@ export function Header() {
         </div>
       </div>
       <nav className={`${toggle === true ? 'flex' : 'hidden'} sm:hidden flex-col mx-4 mb-4 p-4 bg-slate-100 dark:bg-slate-800 rounded-lg`}>
-        <Link href='/' className='text-slate-900 font-medium py-2 px-3 bg-amber-300 dark:bg-amber-400 rounded'>Início</Link>
-        <Link href='/' className='text-slate-950 dark:text-white py-2 px-3 hover:bg-slate-200 dark:hover:bg-slate-700 rounded'>Artigos</Link>
-        <Link href='/' className='text-slate-950 dark:text-white py-2 px-3 hover:bg-slate-200 dark:hover:bg-slate-700 rounded'>Parceiros</Link>
+        <Link href='/' className={`text-slate-950 py-2 px-3 ${pathname === '/' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Início</Link>
+        <Link href='/artigos' className={`text-slate-950 py-2 px-3 ${pathname === '/artigos' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Artigos</Link>
+        <Link href='/parceiros' className={`text-slate-950 py-2 px-3 ${pathname === '/parceiros' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Parceiros</Link>
       </nav>
     </header>
   )

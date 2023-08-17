@@ -11,7 +11,7 @@ export function Thumbnail() {
         <span className='text-slate-800 dark:text-slate-300'>•</span>
         <span className='text-slate-800 dark:text-slate-300'>3 horas atrás</span>
       </div>
-      <Link href='/post/1' className='text-slate-950 dark:text-white text-lg font-medium hover:text-amber-500 dark:hover:text-amber-400'>
+      <Link href='/artigo/1' className='text-slate-950 dark:text-white text-lg font-medium hover:text-amber-500 dark:hover:text-amber-400'>
         Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.
       </Link>
       <div className='flex gap-2 items-center'>

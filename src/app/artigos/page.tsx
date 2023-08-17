@@ -2,7 +2,7 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Thumbnail } from '../../components/Thumbnail'
 
-export default function Posts() {
+export default function Artigos() {
   return (
     <div>
       <Header />

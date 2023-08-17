@@ -20,7 +20,7 @@ export function Footer() {
           </div>
         </div>
         <p className="text-slate-950 dark:text-white text-center pt-8">
-          © 2023 LZF - Advocacia e Assessoria Jurídica. Todos os Direitos Reservados | Desenvolvido por <span className="text-amber-500 dark:text-amber-400">João Vitor</span>
+          © 2023 LZF - Advocacia e Assessoria Jurídica. Todos os Direitos Reservados | Desenvolvido por <a href="https://www.linkedin.com/in/joaovitorcode/" target="_blank" className="text-amber-500 dark:text-amber-400">João Vitor</a>
         </p>
       </div>
     </footer>
