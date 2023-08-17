@@ -14,7 +14,7 @@ export function Services(props: ServicesProps) {
           {props.name}
         </h3>
 
-        {props.paragraphs.map((paragraph) => <p className="lg:text-lg xl:text-xl text-slate-800 dark:text-slate-300 pt-4">
+        {props.paragraphs.map((paragraph) => <p key={paragraph} className="lg:text-lg xl:text-xl text-slate-800 dark:text-slate-300 pt-4">
           {paragraph}
         </p>)}
       </div>
