@@ -10,9 +10,9 @@ export default function Artigo({ params }: { params: { slug: string } }) {
       <Header />
       <div className='max-w-3xl mx-auto px-4 md:px-0 relative top-[104px]'>
         <div className="flex gap-4 flex-wrap items-center">
-          <Link href='#' className="text-sm text-amber-600 dark:text-amber-400 py-1 px-2 bg-amber-100 dark:bg-slate-900 rounded-2xl inline hover:underline">
+          <p className="text-sm text-amber-600 dark:text-amber-400 py-1 px-2 bg-amber-100 dark:bg-slate-900 rounded-2xl inline">
             Trabalhista e Previdenciário
-          </Link>
+          </p>
           <p className="text-sm text-slate-950 dark:text-white">14 de Agosto de 2023</p>
           <p className="text-sm text-slate-950 dark:text-white">Leandro Zaia</p>
           <p className="text-sm text-slate-950 dark:text-white">8 min de leitura</p>
