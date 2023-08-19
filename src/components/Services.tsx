@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface ServicesProps {
   name: string
   paragraphs: string[]
@@ -8,7 +10,20 @@ interface ServicesProps {
 export function Services(props: ServicesProps) {
   return (
     <section className={props.direction === 'row' ? "w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-center" : "w-full flex flex-col-reverse lg:flex-row-reverse gap-8 lg:gap-16 items-center"}>
-      <div className="w-full lg:max-w-[608px] h-[456px] rounded-2xl bg-slate-200 dark:bg-slate-900" />
+      {props.photoUrl === "" ? (
+        <div className="w-full lg:max-w-[608px] h-[456px] rounded-2xl bg-slate-200 dark:bg-slate-900" />
+        ) : (
+        <div className="w-full lg:max-w-[608px] h-[456px] relative">
+          <Image
+            src={props.photoUrl}
+            alt=""
+            fill
+            style={{objectFit:"cover"}}
+            sizes="(max-width: 1024px) 100%, max-width: 608px"
+            className="rounded-2xl"
+          />
+        </div>
+      )}
       <div className="w-full lg:max-w-[608px]">
         <h3 className="text-slate-950 dark:text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-4 pb-2 border-b border-amber-500 inline-block">
           {props.name}

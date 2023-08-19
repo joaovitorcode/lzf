@@ -26,6 +26,7 @@ export function ToggleColorModeButton() {
   return (
     <button
       onClick={switchTheme}
+      aria-label={`Modo ${isDark === 'dark' ? "claro": "escuro"}`}
       className='bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg p-2'
     >
       {isDark === 'dark' ? (

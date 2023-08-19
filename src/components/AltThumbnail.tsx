@@ -16,7 +16,7 @@ export function AltThumbnail() {
           Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor. Aenean in nulla dolor.
         </Link>
         <div className='flex gap-2 items-center'>
-          <span className='text-amber-500 dark:text-amber-400'>Tema</span>
+          <span className='font-bold text-amber-600 dark:text-amber-400'>Tema</span>
           <span className='text-slate-800 dark:text-slate-300'>•</span>
           <span className='text-slate-800 dark:text-slate-300'>8 min de leitura</span>
         </div>

@@ -15,7 +15,7 @@ const services = [
       "Defesa e consultoria em crimes contra administração pública e sistema financeiro. Acompanhamento de infrações ambientais e cibernéticas.",
       "Assistência em execução penal, aconselhamento em direito penal econômico e tributário. Oferecemos soluções abrangentes e especializadas."
     ],
-    photoUrl: "",
+    photoUrl: "/images/example_01.png",
     direction: "row"
   },
   {
@@ -25,7 +25,7 @@ const services = [
       "Assessoria completa em propriedade intelectual e compliance. Orientação em recuperação judicial e litígios empresariais.",
       "Consultoria sólida em direito societário, relações de consumo e estruturação de negócios. Soluções jurídicas abrangentes para empresas."
     ],
-    photoUrl: "",
+    photoUrl: "/images/example_02.png",
     direction: "row-reverse"
   },
   {
@@ -35,7 +35,7 @@ const services = [
       "Abordagem de questões transnacionais alimentares, migração, residência e reconhecimento de nacionalidades.",
       "Legalização de eventos como nascimento, casamento e divórcio no exterior. Colaboração internacional e orientação para brasileiros residentes no exterior."
     ],
-    photoUrl: "",
+    photoUrl: "/images/example_03.png",
     direction: "row"
   },
   {
@@ -45,7 +45,7 @@ const services = [
       "Estratégias para prevenção e resolução de fraudes e incidentes corporativos, incluindo questões fiscais e financeiras.",
       "Implementação eficaz de programas de compliance com enfoque penal, garantindo o cumprimento regulatório e a conduta ética das empresas."
     ],
-    photoUrl: "",
+    photoUrl: "/images/example_04.png",
     direction: "row-reverse"
   },
   {
@@ -55,7 +55,7 @@ const services = [
       "Enfrentamos violações de dados com prevenção e solução, minimizando riscos. A gestão eficaz de incidentes é primordial.",
       "Além disso, fomentamos um ambiente corporativo ético e transparente. Nossas ações de Compliance promovem integridade e conformidade normativa."
     ],
-    photoUrl: "",
+    photoUrl: "/images/example_05.png",
     direction: "row"
   },
 ]
