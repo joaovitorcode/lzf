@@ -1,53 +1,40 @@
 import { Thumbnail } from './Thumbnail'
+import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query";
 
-const thumbnails = [
-  {
-    coverUrl: "/images/example_01.png",
-    user: {
-      name: "Leandro Zaia",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Penal",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_02.png",
-    user: {
-      name: "Natalia Martin",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Empresarial",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_03.png",
-    user: {
-      name: "Thais Vieira",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Internacional",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_04.png",
-    user: {
-      name: "Convidado",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "LGPD e Compliance",
-    readingTime: "8 min de leitura",
-  },
-]
+const getPageData = async () => {
+  const query = `
+  query MyQuery {
+    posts(first: 4, orderBy: createdAt_DESC) {
+      slug
+      title
+      cover {
+        url
+      }
+      author {
+        name
+        picture {
+          url
+        }
+      }
+      date
+      tag {
+        title
+      }
+      body {
+        text
+      }
+    }
+  }  
+  `
 
-export function Thumbnails() {
+  return fetchHygraphQuery(
+    query
+  )
+}
+
+export async function Thumbnails() {
+  const { posts } = await getPageData()
+
   return (
     <section className="w-full">
       <div className='flex justify-between items-end'>
@@ -57,7 +44,7 @@ export function Thumbnails() {
 
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6'>
-        {thumbnails.map((thumbnail) => <Thumbnail key={thumbnail.title} {...thumbnail} />)}
+        {posts.map((post:any) => <Thumbnail key={post.slug} {...post} />)}
       </div>
     </section>
   )

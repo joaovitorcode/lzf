@@ -1,60 +1,47 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Thumbnail } from '../../components/Thumbnail'
+import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query";
 
-const thumbnails = [
-  {
-    coverUrl: "/images/example_01.png",
-    user: {
-      name: "Leandro Zaia",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Penal",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_02.png",
-    user: {
-      name: "Natalia Martin",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Empresarial",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_03.png",
-    user: {
-      name: "Thais Vieira",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "Internacional",
-    readingTime: "8 min de leitura",
-  },
-  {
-    coverUrl: "/images/example_04.png",
-    user: {
-      name: "Convidado",
-      photoUrl: "",
-    },
-    date: "3 horas atrás",
-    title: "Donec pretium arcu a urna suscipit commodo. Phasellus ac pulvinar massa, id dapibus tortor.",
-    theme: "LGPD e Compliance",
-    readingTime: "8 min de leitura",
-  }
-]
+const getPageData = async () => {
+  const query = `
+  query MyQuery {
+    posts(orderBy: createdAt_DESC) {
+      slug
+      title
+      cover {
+        url
+      }
+      author {
+        name
+        picture {
+          url
+        }
+      }
+      date
+      tag {
+        title
+      }
+      body {
+        text
+      }
+    }
+  }  
+  `
 
-export default function Artigos() {
+  return fetchHygraphQuery(
+    query
+  )
+}
+
+export default async function Artigos() {
+  const { posts } = await getPageData()
+
   return (
     <div>
       <Header />
-      <div className={`max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 xl:px-0 py-8 gap-x-6 gap-y-16 ${thumbnails.length <= 4 ? "xl:h-[calc(100vh-80px)]" : ""} relative top-[80px]`}>
-        {thumbnails.map((thumbnail) => <Thumbnail key={thumbnail.title} {...thumbnail} />)}
+      <div className={`max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 xl:px-0 py-8 gap-x-6 gap-y-16 ${posts.length <= 4 ? "xl:h-[calc(100vh-80px)]" : ""} relative top-[80px]`}>
+        {posts.map((post: any) => <Thumbnail key={post.title} {...post} />)}
       </div>
       <div className='relative top-[80px]'>
         <Footer />
