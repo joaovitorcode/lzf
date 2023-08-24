@@ -27,11 +27,23 @@ const testimonials = [
   },
 ]
 
-export function Testimonials() {
+interface Testimonial {
+  name: string
+  message: string
+}
+
+interface Props {
+  title: string
+  testimonials: Testimonial[]
+}
+
+export function Testimonials({ title, testimonials }: Props) {
   return (
     <section className="w-full bg-slate-100 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto py-16 text-center">
-        <h2 className="text-slate-950 dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-center border-b border-amber-500 pb-2 inline-block">Depoimentos</h2>
+        <h2 className="text-slate-950 dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-center border-b border-amber-500 pb-2 inline-block">
+          {title}
+        </h2>
         <div className="grid md:grid-cols-2 xl:grid-cols-3 px-4 xl:px-0 gap-16 pt-12">
           {testimonials.map((testimonial) => <Testimonial key={testimonial.name} {...testimonial} />)}
         </div>

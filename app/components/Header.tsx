@@ -6,9 +6,18 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { MdMenu } from "react-icons/md"
 import { ToggleColorModeButton } from '../components/ToggleColorModeButton'
-import { useDarkMode } from '@/hooks/useDarkMode'
+import { useDarkMode } from '../hooks/useDarkMode'
 
-export function Header() {
+interface Props {
+  header: {
+    nav_1: string
+    nav_2: string
+    nav_3: string
+  }
+  lng: string
+}
+
+export function Header({ header, lng }: Props) {
   const pathname = usePathname()
   const [toggle, setToggle] = useState(false)
   const { isDark } = useDarkMode()
@@ -25,12 +34,13 @@ export function Header() {
         </Link>
 
         <nav className='hidden sm:flex gap-6'>
-          <Link href='/' className={`text-slate-950 dark:text-white ${pathname === '/' && "border-b"} hover:border-b border-amber-500 pb-2`}>Início</Link>
-          <Link href='/artigos' className={`text-slate-950 dark:text-white ${pathname === '/artigos' && "border-b"} hover:border-b border-amber-500 pb-2`}>Artigos</Link>
-          <Link href='/sobre' className={`text-slate-950 dark:text-white ${pathname === '/sobre' && "border-b"} hover:border-b border-amber-500 pb-2`}>Sobre</Link>
+          <Link href='/' className={`text-slate-950 dark:text-white ${pathname === `/${lng}` && "border-b"} hover:border-b border-amber-500 pb-2`}>{header.nav_1}</Link>
+          <Link href='/artigos' className={`text-slate-950 dark:text-white ${pathname === `/${lng}/artigos` && "border-b"} hover:border-b border-amber-500 pb-2`}>{header.nav_2}</Link>
+          <Link href='/sobre' className={`text-slate-950 dark:text-white ${pathname === `/${lng}/sobre` && "border-b"} hover:border-b border-amber-500 pb-2`}>{header.nav_3}</Link>
         </nav>
 
         <div className='flex gap-4'>
+          {/* <Link href={`/en`}>EN</Link> */}
           <ToggleColorModeButton />
           <button aria-label='Menu' onClick={() => setToggle(value => !value)} className='sm:hidden bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg p-2'>
             <MdMenu className="w-6 h-6 text-slate-950 dark:text-white" />
@@ -38,9 +48,9 @@ export function Header() {
         </div>
       </div>
       <nav className={`${toggle === true ? 'flex' : 'hidden'} sm:hidden flex-col mx-4 mb-4 p-4 bg-slate-100 dark:bg-slate-800 rounded-lg`}>
-        <Link href='/' className={`text-slate-950 py-2 px-3 ${pathname === '/' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Início</Link>
-        <Link href='/artigos' className={`text-slate-950 py-2 px-3 ${pathname === '/artigos' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Artigos</Link>
-        <Link href='/sobre' className={`text-slate-950 py-2 px-3 ${pathname === '/sobre' ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Sobre</Link>
+        <Link href='/' className={`text-slate-950 py-2 px-3 ${pathname === `/${lng}` ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Início</Link>
+        <Link href='/artigos' className={`text-slate-950 py-2 px-3 ${pathname === `/${lng}/artigos` ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Artigos</Link>
+        <Link href='/sobre' className={`text-slate-950 py-2 px-3 ${pathname === `/${lng}/sobre` ? "font-medium bg-amber-300 dark:bg-amber-400" : "dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"} rounded`}>Sobre</Link>
       </nav>
     </header>
   )

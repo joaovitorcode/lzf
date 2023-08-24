@@ -1,5 +1,10 @@
 import { Thumbnail } from './Thumbnail'
 import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query";
+import { useTranslation } from '../i18n'
+
+interface Props {
+  value: string
+}
 
 const getPageData = async () => {
   const query = `
@@ -32,14 +37,14 @@ const getPageData = async () => {
   )
 }
 
-export async function Thumbnails() {
+export async function Thumbnails({ value }: Props) {
   const { posts } = await getPageData()
 
   return (
     <section className="w-full">
       <div className='flex justify-between items-end'>
         <h2 className='text-slate-950 dark:text-white text-2xl sm:text-3xl md:text-4xl font-semibold border-b border-amber-500 pb-2'>
-          Artigos Recentes
+          {value}
         </h2>
 
       </div>

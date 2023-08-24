@@ -1,11 +1,19 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Author } from "@/components/Author";
-import { AltThumbnail } from "@/components/AltThumbnail";
-import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query";
+import { Header } from "../../../components/Header"
+import { Footer } from "../../../components/Footer"
+import { Author } from "../../../components/Author"
+import { AltThumbnail } from "../../../components/AltThumbnail"
+import { fetchHygraphQuery } from "../../../../app/utils/fetch-hygraph-query"
 import Image from 'next/image'
-import { RichText } from "@/components/RichText";
+import { RichText } from "../../../components/RichText"
 import readingTime from 'reading-time'
+import { useTranslation } from '../../../i18n'
+
+interface Props {
+  params: {
+    lng: string
+    slug: string
+  }
+}
 
 const getPageData = async (slug: string) => {
   const query = `
@@ -61,13 +69,27 @@ const getPageData = async (slug: string) => {
   )
 }
 
-export default async function Artigo({ params }: { params: { slug: string } }) {
+export default async function Artigo({ params }: Props) {
   const { post } = await getPageData(params.slug)
   const stats = readingTime(post.body.text)
-  
+  const { t } = await useTranslation(params.lng, 'translation')
+
+  const header = {
+    nav_1: t('nav-1'),
+    nav_2: t('nav-2'),
+    nav_3: t('nav-3')
+  }
+
+  const footer = {
+    contact_us: t('footer__contact-us'),
+    email: t('footer__email'),
+    visit_us: t('footer__visit-us'),
+    rights: t('footer__rights')
+  }
+
   return (
     <div>
-      <Header />
+      <Header header={header} lng={params.lng} />
       <div className='max-w-3xl mx-auto px-4 md:px-0 relative top-[104px]'>
         <div className="flex gap-4 flex-wrap items-center">
           <p className="text-sm text-amber-600 dark:text-amber-400 py-1 px-2 bg-amber-100 dark:bg-slate-900 rounded-2xl inline">
@@ -102,7 +124,7 @@ export default async function Artigo({ params }: { params: { slug: string } }) {
         {post.related.map((rel: any) => <AltThumbnail key={rel.slug} {...rel} />)}
       </div>
       <div className='relative top-[104px] pt-8'>
-        <Footer />
+        <Footer footer={footer} />
       </div>
     </div>
   )
