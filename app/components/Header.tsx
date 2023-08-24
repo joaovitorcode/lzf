@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { MdMenu } from "react-icons/md"
 import { ToggleColorModeButton } from '../components/ToggleColorModeButton'
 import { useDarkMode } from '../hooks/useDarkMode'
+import { languages } from '../i18n/settings'
 
 interface Props {
   header: {
@@ -40,7 +41,17 @@ export function Header({ header, lng }: Props) {
         </nav>
 
         <div className='flex gap-4'>
-          {/* <Link href={`/en`}>EN</Link> */}
+        {languages.filter((l) => lng !== l).map((l) => {
+          const newPathname = pathname.replace(`/${lng}`, '')
+
+          return (
+            <Link key={l} href={`/${l}${newPathname}`}>
+              <span className='bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-950 dark:text-white rounded-lg w-10 h-10 flex justify-center items-center font-semibold'>
+                {l.toUpperCase()}
+              </span>
+            </Link>
+          )
+        })}
           <ToggleColorModeButton />
           <button aria-label='Menu' onClick={() => setToggle(value => !value)} className='sm:hidden bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg p-2'>
             <MdMenu className="w-6 h-6 text-slate-950 dark:text-white" />
