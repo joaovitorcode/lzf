@@ -115,7 +115,7 @@ export default async function Artigo({ params }: Props) {
           </p>
           <p className="text-sm text-slate-950 dark:text-white">{post.date}</p>
           <p className="text-sm text-slate-950 dark:text-white">{post.author.name}</p>
-          <p className="text-sm text-slate-950 dark:text-white">{Math.ceil(stats.minutes)} min de leitura</p>
+          <p className="text-sm text-slate-950 dark:text-white">{Math.ceil(stats.minutes)} {t('reading-time')}</p>
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white pt-6">
@@ -143,7 +143,7 @@ export default async function Artigo({ params }: Props) {
 
         <Author {...post.author} lng={params.lng} />
         {post.related.length && <h2 className='text-slate-950 dark:text-white text-2xl sm:text-3xl md:text-4xl font-semibold border-b border-amber-500 pb-2 inline-block pt-16'>
-          Artigos Recomendados
+          {t('alt-thumbnail__title')}
         </h2>}
         {post.related.map((rel: any) => <AltThumbnail key={rel.slug} {...rel} lng={params.lng} />)}
       </div>

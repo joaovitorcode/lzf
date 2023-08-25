@@ -1,6 +1,7 @@
 import Link from 'next/link' 
 import Image from 'next/image'
 import readingTime from 'reading-time'
+import { useTranslation } from '../i18n'
 
 interface AltThumbnailProps {
   slug: string
@@ -28,8 +29,9 @@ interface AltThumbnailProps {
   lng: string
 }
 
-export function AltThumbnail(props: AltThumbnailProps) {
+export async function AltThumbnail(props: AltThumbnailProps) {
   const stats = readingTime(props.body.text)
+  const { t } = await useTranslation(props.lng, 'translation')
 
   return (
     <div className="w-full flex flex-col sm:flex-row gap-4 pt-6">
@@ -65,7 +67,7 @@ export function AltThumbnail(props: AltThumbnailProps) {
         <div className='flex gap-2 items-center'>
           <span className='font-bold text-amber-600 dark:text-amber-400'>{props.tag.title}</span>
           <span className='text-slate-800 dark:text-slate-300'>•</span>
-          <span className='text-slate-800 dark:text-slate-300'>{Math.ceil(stats.minutes)} min de leitura</span>
+          <span className='text-slate-800 dark:text-slate-300'>{Math.ceil(stats.minutes)} {t('reading-time')}</span>
         </div>
       </div>
     </div>
