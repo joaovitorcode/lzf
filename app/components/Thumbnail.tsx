@@ -5,6 +5,9 @@ import readingTime from 'reading-time'
 interface ThumbnailProps {
   slug: string
   title: string
+  titleEn?: string
+  titleEs?: string
+  titleIt?: string
   cover: {
     url: string
   }
@@ -21,6 +24,7 @@ interface ThumbnailProps {
   body: {
     text: string
   }
+  lng: string
 }
 
 export function Thumbnail(props: ThumbnailProps) {
@@ -50,7 +54,10 @@ export function Thumbnail(props: ThumbnailProps) {
         <span className='text-slate-800 dark:text-slate-300'>{props.date}</span>
       </div>
       <Link href={`/artigo/${props.slug}`} className='line-clamp-3 text-slate-950 dark:text-white text-lg font-medium hover:text-amber-600 dark:hover:text-amber-400'>
-        {props.title}
+        {props.lng === 'pt' ? props.title : 
+          props.lng === 'en' ? props.titleEn :
+            props.lng === 'es' ? props.titleEs :
+              props.lng === 'it' ? props.titleIt : ""}
       </Link>
       <div className='flex gap-2 items-center'>
         <span className='text-amber-600 dark:text-amber-400 font-bold'>{props.tag.title}</span>

@@ -21,6 +21,9 @@ const getPageData = async (slug: string) => {
       post(where: {slug: "${slug}"}) {
         slug
         title
+        titleEn
+        titleEs
+        titleIt
         tag {
           title
         }
@@ -31,6 +34,9 @@ const getPageData = async (slug: string) => {
             url
           }
           bio
+          bioEn
+          bioEs
+          bioIt
         }
         cover {
           url
@@ -39,9 +45,21 @@ const getPageData = async (slug: string) => {
           raw
           text
         }
+        bodyEn {
+          raw
+        }
+        bodyEs {
+          raw
+        }
+        bodyIt {
+          raw
+        }
         related {
           slug
           title
+          titleEn
+          titleEs
+          titleIt
           tag {
             title
           }
@@ -101,7 +119,10 @@ export default async function Artigo({ params }: Props) {
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white pt-6">
-          {post.title}
+          {params.lng === 'pt' ? post.title : 
+            params.lng === 'en' ? post.titleEn :
+              params.lng === 'es' ? post.titleEs :
+                params.lng === 'it' ? post.titleIt : ''}
         </h2>
       
         <Image
@@ -114,14 +135,17 @@ export default async function Artigo({ params }: Props) {
         />
 
         <article className="prose dark:prose-invert prose-base sm:prose-lg md:prose-xl mt-6">
-          <RichText content={post.body.raw} />
+          {params.lng === 'pt' ? <RichText content={post.body?.raw} /> :
+            params.lng === 'en' ? <RichText content={post.bodyEn?.raw} /> :
+              params.lng === 'es' ? <RichText content={post.bodyEs?.raw} /> :
+                params.lng === 'it' ? <RichText content={post.bodyIt?.raw} /> : ""}
         </article>
 
-        <Author {...post.author} />
+        <Author {...post.author} lng={params.lng} />
         {post.related.length && <h2 className='text-slate-950 dark:text-white text-2xl sm:text-3xl md:text-4xl font-semibold border-b border-amber-500 pb-2 inline-block pt-16'>
           Artigos Recomendados
         </h2>}
-        {post.related.map((rel: any) => <AltThumbnail key={rel.slug} {...rel} />)}
+        {post.related.map((rel: any) => <AltThumbnail key={rel.slug} {...rel} lng={params.lng} />)}
       </div>
       <div className='relative top-[104px] pt-8'>
         <Footer footer={footer} />

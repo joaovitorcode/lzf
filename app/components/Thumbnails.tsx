@@ -1,9 +1,9 @@
 import { Thumbnail } from './Thumbnail'
-import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query";
-import { useTranslation } from '../i18n'
+import { fetchHygraphQuery } from "@/utils/fetch-hygraph-query"
 
 interface Props {
   value: string
+  lng: string
 }
 
 const getPageData = async () => {
@@ -12,6 +12,9 @@ const getPageData = async () => {
     posts(first: 4, orderBy: createdAt_DESC) {
       slug
       title
+      titleEn
+      titleEs
+      titleIt
       cover {
         url
       }
@@ -37,7 +40,7 @@ const getPageData = async () => {
   )
 }
 
-export async function Thumbnails({ value }: Props) {
+export async function Thumbnails({ value, lng }: Props) {
   const { posts } = await getPageData()
 
   return (
@@ -49,7 +52,7 @@ export async function Thumbnails({ value }: Props) {
 
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6'>
-        {posts.map((post:any) => <Thumbnail key={post.slug} {...post} />)}
+        {posts.map((post:any) => <Thumbnail key={post.slug} {...post} lng={lng} />)}
       </div>
     </section>
   )

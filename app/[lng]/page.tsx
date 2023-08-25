@@ -163,7 +163,7 @@ export default async function Home({ params: { lng } }: Props) {
       <Header header={header} lng={lng} />
       <div className='max-w-7xl mx-auto px-4 xl:px-0 flex flex-col gap-16 relative top-[104px]'>
         <Banner value={t('banner')} />
-        <Thumbnails value={t('thumbnails')} />
+        <Thumbnails value={t('thumbnails')} lng={lng} />
         {services.map((service) => <Services key={service.name} {...service} />)}
         <Lawyers lawyers={lawyers} title={t('lawyers')} />
         <Companies companies={companies} title={t('companies')} />

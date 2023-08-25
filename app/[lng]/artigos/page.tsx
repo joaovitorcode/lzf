@@ -16,6 +16,9 @@ const getPageData = async () => {
     posts(orderBy: createdAt_DESC) {
       slug
       title
+      titleEn
+      titleEs
+      titleIt
       cover {
         url
       }
@@ -62,7 +65,7 @@ export default async function Artigos({ params: { lng } }: Props) {
     <div>
       <Header header={header} lng={lng} />
       <div className={`max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 xl:px-0 py-8 gap-x-6 gap-y-16 ${posts.length <= 4 ? "xl:h-[calc(100vh-80px)]" : ""} relative top-[80px]`}>
-        {posts.map((post: any) => <Thumbnail key={post.title} {...post} />)}
+        {posts.map((post: any) => <Thumbnail key={post.title} {...post} lng={lng} />)}
       </div>
       <div className='relative top-[80px]'>
         <Footer footer={footer} />
